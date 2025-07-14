@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelAdmin - Gestión de Clientes</title>
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="d-flex flex-column flex-lg-row h-100">
+        <!-- Sidebar -->
+        <nav class="sidebar bg-dark text-white p-3">
+            <div class="d-flex align-items-center mb-4 sidebar-header">
+                <div class="logo-container">
+                    <svg class="logo" viewBox="0 0 100 100" width="40" height="40">
+                        <path d="M50,15 L85,45 L65,85 H35 L15,45 Z" fill="#0d6efd" />
+                        <path d="M40,35 L60,35 L55,60 H45 Z" fill="#ffffff" />
+                    </svg>
+                </div>
+                <span class="ms-2 fw-bold d-none d-lg-inline">TravelAdmin</span>
+                <button class="btn btn-link text-white ms-auto d-lg-none" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2">
+                    <a class="nav-link" href="/index.html">
+                        <i class="fas fa-tachometer-alt me-2"></i>
+                        <span class="d-none d-lg-inline">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link active" href="">
+                        <i class="fas fa-users me-2"></i>
+                        <span class="d-none d-lg-inline">Clientes</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link" href="../reservas/reserva.html">
+                        <i class="fas fa-calendar-check me-2"></i>
+                        <span class="d-none d-lg-inline">Reservas</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link" href="/pages/accommodations.html">
+                        <i class="fas fa-hotel me-2"></i>
+                        <span class="d-none d-lg-inline">Alojamientos</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link" href="/pages/reports.html">
+                        <i class="fas fa-chart-bar me-2"></i>
+                        <span class="d-none d-lg-inline">Informes</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="mt-auto">
+                <hr class="border-secondary">
+                <a class="nav-link d-flex align-items-center" href="/pages/profile.html">
+                    <div class="avatar-circle me-2">
+                        <span class="initials">JD</span>
+                    </div>
+                    <span class="d-none d-lg-inline">Juan Pérez</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="content-wrapper flex-grow-1 overflow-auto">
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+                <div class="container-fluid">
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#topNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="topNavbar">
+                        <ol class="breadcrumb my-2 ms-3">
+                            <li class="breadcrumb-item"><a href="/index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Clientes</li>
+                        </ol>
+
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="notificationsDropdown" role="button"
+                                    data-bs-toggle="dropdown">
+                                    <i class="fas fa-bell"></i>
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        3
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <h6 class="dropdown-header">Notificaciones</h6>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-user-plus me-2 text-success"></i>
+                                            <div>
+                                                <p class="mb-0">Nuevo cliente registrado</p>
+                                                <small class="text-muted">Hace 5 minutos</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-calendar-check me-2 text-primary"></i>
+                                            <div>
+                                                <p class="mb-0">Nueva reserva confirmada</p>
+                                                <small class="text-muted">Hace 1 hora</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-exclamation-triangle me-2 text-warning"></i>
+                                            <div>
+                                                <p class="mb-0">Alojamiento con baja disponibilidad</p>
+                                                <small class="text-muted">Hace 3 horas</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-center" href="#">Ver todas</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" id="helpDropdown">
+                                    <i class="fas fa-question-circle"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <div class="container-fluid py-4">
+                <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+                    <h1 class="h3">Gestión de Clientes</h1>
+                    <div class="d-flex">
+                        <button class="btn btn-primary" id="addClientBtn" data-bs-toggle="modal"
+                            data-bs-target="#clientModal">
+                            <i class="fas fa-user-plus me-2"></i>Nuevo Cliente
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Clients Table -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Cliente</th>
+                                        <th>Teléfono</th>
+                                        <th>Fecha de Registro</th>
+                                        <th>Preferencias</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="clientsTableBody">
+                                    <tr>
+                                        <td colspan="5" class="text-center py-4">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Cargando...</span>
+                                            </div>
+                                            <p class="mt-2">Cargando datos de clientes...</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer mt-auto py-3 bg-dark text-white">
+                <div class="container-fluid text-center">
+                    <span class="text-muted">© 2023 TravelAdmin. Todos los derechos reservados.</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Client Modal -->
+    <div class="modal fade" id="clientModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar Nuevo Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="clientForm">
+                        <input type="hidden" name="clientId" value="">
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Nombre Completo <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Apellido Completo <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Teléfono <span
+                                        class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                                <small class="form-text text-muted">Formato: +57 XXXXXXXXX</small>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+
+                            <div class="col-md-12w">
+                                <label for="documentId" class="form-label">Documento de Identidad</label>
+                                <input type="text" class="form-control" id="documentId" name="documentId">
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-12">
+                                <label for="address" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="address" name="address">
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="dateOfBirth" class="form-label">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Preferencias de Viaje</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="preferences"
+                                            id="prefPlaya" value="Playa">
+                                        <label class="form-check-label" for="prefPlaya">Playa</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="preferences"
+                                            id="prefMontana" value="Montaña">
+                                        <label class="form-check-label" for="prefMontana">Montaña</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="preferences"
+                                            id="prefCiudad" value="Ciudad">
+                                        <label class="form-check-label" for="prefCiudad">Ciudad</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="preferences"
+                                            id="prefAventura" value="Aventura">
+                                        <label class="form-check-label" for="prefAventura">Aventura</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="preferences"
+                                            id="prefCultural" value="Turismo Cultural">
+                                        <label class="form-check-label" for="prefCultural">Turismo Cultural</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="preferences"
+                                            id="prefGastronomia" value="Gastronomía">
+                                        <label class="form-check-label" for="prefGastronomia">Gastronomía</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" form="clientForm">
+                        <i class="fas fa-save me-2"></i>Guardar Cliente
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- App JavaScript -->
+    <script src="/static/js/data.js"></script>
+    <script src="/static/js/utils.js"></script>
+    <script src="/static/js/clients.js"></script>
+</body>
+
+</html>

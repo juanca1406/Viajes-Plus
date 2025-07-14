@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelAdmin - Gestión de Reservas</title>
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="d-flex flex-column flex-lg-row h-100">
+        <!-- Sidebar -->
+        <nav class="sidebar bg-dark text-white p-3">
+            <div class="d-flex align-items-center mb-4 sidebar-header">
+                <div class="logo-container">
+                    <svg class="logo" viewBox="0 0 100 100" width="40" height="40">
+                        <path d="M50,15 L85,45 L65,85 H35 L15,45 Z" fill="#0d6efd" />
+                        <path d="M40,35 L60,35 L55,60 H45 Z" fill="#ffffff" />
+                    </svg>
+                </div>
+                <span class="ms-2 fw-bold d-none d-lg-inline">TravelAdmin</span>
+                <button class="btn btn-link text-white ms-auto d-lg-none" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2">
+                    <a class="nav-link" href="/index.html">
+                        <i class="fas fa-tachometer-alt me-2"></i>
+                        <span class="d-none d-lg-inline">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link" href="/pages/clients.html">
+                        <i class="fas fa-users me-2"></i>
+                        <span class="d-none d-lg-inline">Clientes</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link active" href="/pages/bookings.html">
+                        <i class="fas fa-calendar-check me-2"></i>
+                        <span class="d-none d-lg-inline">Reservas</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link" href="/pages/accommodations.html">
+                        <i class="fas fa-hotel me-2"></i>
+                        <span class="d-none d-lg-inline">Alojamientos</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="nav-link" href="/pages/reports.html">
+                        <i class="fas fa-chart-bar me-2"></i>
+                        <span class="d-none d-lg-inline">Informes</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="mt-auto">
+                <hr class="border-secondary">
+                <a class="nav-link d-flex align-items-center" href="/pages/profile.html">
+                    <div class="avatar-circle me-2">
+                        <span class="initials">JD</span>
+                    </div>
+                    <span class="d-none d-lg-inline">Juan Pérez</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="content-wrapper flex-grow-1 overflow-auto">
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+                <div class="container-fluid">
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#topNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="topNavbar">
+                        <ol class="breadcrumb my-2 ms-3">
+                            <li class="breadcrumb-item"><a href="/index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Reservas</li>
+                        </ol>
+
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="notificationsDropdown" role="button"
+                                    data-bs-toggle="dropdown">
+                                    <i class="fas fa-bell"></i>
+                                    <span
+                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        3
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <h6 class="dropdown-header">Notificaciones</h6>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-user-plus me-2 text-success"></i>
+                                            <div>
+                                                <p class="mb-0">Nuevo cliente registrado</p>
+                                                <small class="text-muted">Hace 5 minutos</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-calendar-check me-2 text-primary"></i>
+                                            <div>
+                                                <p class="mb-0">Nueva reserva confirmada</p>
+                                                <small class="text-muted">Hace 1 hora</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-exclamation-triangle me-2 text-warning"></i>
+                                            <div>
+                                                <p class="mb-0">Alojamiento con baja disponibilidad</p>
+                                                <small class="text-muted">Hace 3 horas</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-center" href="#">Ver todas</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" id="helpDropdown">
+                                    <i class="fas fa-question-circle"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <div class="container-fluid py-4">
+                <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+                    <h1 class="h3">Gestión de Reservas</h1>
+                    <a href="/pages/new-booking.html" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Nueva Reserva
+                    </a>
+                </div>
+
+                <!-- Search and Filter Bar -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    <input type="text" id="searchBookings" class="form-control"
+                                        placeholder="Buscar reservas...">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select" id="statusFilter">
+                                    <option value="all" selected>Todos los estados</option>
+                                    <option value="confirmed">Confirmadas</option>
+                                    <option value="pending">Pendientes</option>
+                                    <option value="cancelled">Canceladas</option>
+                                </select>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="d-flex gap-2">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                        <input type="date" id="dateFilterStart" class="form-control"
+                                            placeholder="Fecha inicio">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                        <input type="date" id="dateFilterEnd" class="form-control"
+                                            placeholder="Fecha fin">
+                                    </div>
+                                    <button class="btn btn-outline-secondary" id="applyDateFilter">
+                                        <i class="fas fa-filter"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookings Statistics -->
+                <div class="row mb-4">
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <h6 class="text-muted mb-1">Reservas Totales</h6>
+                                <h2 class="text-primary fw-bold mb-0" id="totalBookingsCount"></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <h6 class="text-muted mb-1">Confirmadas</h6>
+                                <h2 class="text-success fw-bold mb-0" id="confirmedBookingsCount"></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <h6 class="text-muted mb-1">Pendientes</h6>
+                                <h2 class="text-warning fw-bold mb-0" id="pendingBookingsCount"></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <h6 class="text-muted mb-1">Canceladas</h6>
+                                <h2 class="text-danger fw-bold mb-0" id="cancelledBookingsCount"></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookings Table -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Referencia</th>
+                                        <th>Cliente</th>
+                                        <th>Alojamiento</th>
+                                        <th>Fechas</th>
+                                        <th>Total</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bookingsTableBody">
+                                    <tr>
+                                        <td colspan="7" class="text-center py-4">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Cargando...</span>
+                                            </div>
+                                            <p class="mt-2">Cargando datos de reservas...</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer mt-auto py-3 bg-dark text-white">
+                <div class="container-fluid text-center">
+                    <span class="text-muted">© 2023 TravelAdmin. Todos los derechos reservados.</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Booking Wizard Modal -->
+    <div class="modal fade" id="bookingWizardModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nueva Reserva</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Booking Wizard Steps -->
+                    <div class="booking-steps d-flex mb-4">
+                        <div class="step active d-flex align-items-center flex-fill">
+                            <div class="step-number">1</div>
+                            <div class="ms-2">Cliente</div>
+                        </div>
+                        <div class="step d-flex align-items-center flex-fill">
+                            <div class="step-number">2</div>
+                            <div class="ms-2">Alojamiento</div>
+                        </div>
+                        <div class="step d-flex align-items-center flex-fill">
+                            <div class="step-number">3</div>
+                            <div class="ms-2">Detalles</div>
+                        </div>
+                        <div class="step d-flex align-items-center flex-fill">
+                            <div class="step-number">4</div>
+                            <div class="ms-2">Confirmación</div>
+                        </div>
+                    </div>
+
+                    <form id="bookingForm">
+                        <input type="hidden" name="bookingId" value="">
+                        <input type="hidden" name="clientId" value="">
+                        <input type="hidden" name="accommodationId" value="">
+                        <input type="hidden" name="totalPrice" id="totalPrice" value="">
+
+                        <!-- Step 1: Client Selection -->
+                        <div class="step-content active" id="step0">
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <label for="clientSelect" class="form-label">Seleccione un Cliente</label>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" id="addNewClientBtn">
+                                        <i class="fas fa-plus me-1"></i>Nuevo Cliente
+                                    </button>
+                                </div>
+                                <select class="form-select" id="clientSelect" name="clientSelect" required>
+                                    <option value="" selected disabled>Seleccione un cliente</option>
+                                </select>
+                            </div>
+
+                            <div id="clientDetails">
+                                <!-- Client details will be loaded here dynamically -->
+                            </div>
+
+                            <div class="d-flex justify-content-between mt-4">
+                                <div></div> <!-- Spacer for flex alignment -->
+                                <button type="button" class="btn btn-primary btn-next-step" data-current-step="0">
+                                    Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Accommodation Selection -->
+                        <div class="step-content" id="step1">
+                            <div class="mb-4">
+                                <label for="accommodationSelect" class="form-label">Seleccione un Alojamiento</label>
+                                <select class="form-select" id="accommodationSelect" name="accommodationSelect"
+                                    required>
+                                    <option value="" selected disabled>Seleccione un alojamiento</option>
+                                </select>
+                            </div>
+
+                            <div id="accommodationDetails">
+                                <!-- Accommodation details will be loaded here dynamically -->
+                            </div>
+
+                            <div class="d-flex justify-content-between mt-4">
+                                <button type="button" class="btn btn-outline-secondary btn-prev-step"
+                                    data-current-step="1">
+                                    <i class="fas fa-arrow-left me-2"></i>Anterior
+                                </button>
+                                <button type="button" class="btn btn-primary btn-next-step" data-current-step="1">
+                                    Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Booking Details -->
+                        <div class="step-content" id="step2">
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label for="checkInDate" class="form-label">Fecha de Entrada <span
+                                            class="text-danger">*</span></label>
+                                    <input type="date" class="form-control" id="checkInDate" name="checkInDate"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="checkOutDate" class="form-label">Fecha de Salida <span
+                                            class="text-danger">*</span></label>
+                                    <input type="date" class="form-control" id="checkOutDate" name="checkOutDate"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-4">
+                                    <label for="guests" class="form-label">Número de Huéspedes <span
+                                            class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" id="guests" name="guests" min="1"
+                                        value="2" required>
+                                </div>
+                                <div class="col-md-8">
+                                    <label for="roomType" class="form-label">Tipo de Habitación <span
+                                            class="text-danger">*</span></label>
+                                    <select class="form-select" id="roomType" name="roomType" required data-price="0">
+                                        <option value="" selected disabled>Seleccione tipo de habitación</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="bookingNotes" class="form-label">Notas Adicionales</label>
+                                <textarea class="form-control" id="bookingNotes" name="notes" rows="3"
+                                    placeholder="Solicitudes especiales, comentarios, etc."></textarea>
+                            </div>
+
+                            <div class="alert alert-info d-flex align-items-center">
+                                <i class="fas fa-info-circle me-3 fs-4"></i>
+                                <div>
+                                    Precio estimado: <span class="fw-bold" id="calculatedPrice">€0.00</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between mt-4">
+                                <button type="button" class="btn btn-outline-secondary btn-prev-step"
+                                    data-current-step="2">
+                                    <i class="fas fa-arrow-left me-2"></i>Anterior
+                                </button>
+                                <button type="button" class="btn btn-primary btn-next-step" data-current-step="2">
+                                    Siguiente <i class="fas fa-arrow-right ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Confirmation -->
+                        <div class="step-content" id="step3">
+                            <div id="bookingSummary">
+                                <!-- Booking summary will be loaded here dynamically -->
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="paymentStatus" class="form-label">Estado del Pago</label>
+                                <select class="form-select" id="paymentStatus" name="paymentStatus">
+                                    <option value="pending">Pendiente</option>
+                                    <option value="partial">Parcial</option>
+                                    <option value="paid">Pagado</option>
+                                </select>
+                            </div>
+
+                            <div class="alert alert-success d-flex">
+                                <i class="fas fa-check-circle me-3 fs-4"></i>
+                                <div>
+                                    El sistema ha verificado la disponibilidad para las fechas seleccionadas. Puede
+                                    proceder a confirmar la reserva.
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between mt-4">
+                                <button type="button" class="btn btn-outline-secondary btn-prev-step"
+                                    data-current-step="3">
+                                    <i class="fas fa-arrow-left me-2"></i>Anterior
+                                </button>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-check me-2"></i>Confirmar Reserva
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- App JavaScript -->
+    <script src="/static/js/data.js"></script>
+    <script src="/static/js/utils.js"></script>
+    <script src="/static/js/bookings.js"></script>
+    <script src="/static/js/clients.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load booking statistics
+            const bookings = DataService.bookings.getAll();
+            document.getElementById('totalBookingsCount').textContent = bookings.length;
+
+            const statusCounts = DataService.bookings.countByStatus();
+            document.getElementById('confirmedBookingsCount').textContent = statusCounts.confirmed;
+            document.getElementById('pendingBookingsCount').textContent = statusCounts.pending;
+            document.getElementById('cancelledBookingsCount').textContent = statusCounts.cancelled;
+        });
+    </script>
+</body>
+
+</html>

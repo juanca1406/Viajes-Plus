@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Olvidé mi contraseña</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="../index.php">
+                <i class="fas fa-paper-plane me-2"></i>Viajes Plus
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-medium" href="./login.php">Regresar</a>
+                    </li>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+        <div class="card shadow-sm p-4" style="width: 100%; max-width: 500px;">
+            <div class="text-center mb-4">
+                <h4 class="fw-bold">¿Olvidaste tu contraseña?</h4>
+                <p class="text-muted">Te enviaremos un enlace a tu correo electrónico para restablecerla.</p>
+            </div>
+
+            <form action="../modelo/modelo.php?opcion=20" method="post" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="correo" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="correo" name="correo" placeholder="correo@ejemplo.com"
+                        required>
+                    <div class="invalid-feedback">Por favor, ingresa un correo válido.</div>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Enviar enlace de recuperación</button>
+                </div>
+            </form>
+
+            <div class="text-center mt-3">
+                <a href="./login.php" class="text-decoration-none">Volver al inicio de sesión</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Validación de formulario Bootstrap -->
+    <script>
+        (function () {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.from(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

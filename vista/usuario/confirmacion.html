@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelWorld - Confirmación de Reserva</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="bg-light">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark text-white collapse"
+                style="height: 100vh; position: sticky; top: 0;">
+                <div class="pt-4 pb-3 px-3 text-center">
+                    <i class="fas fa-paper-plane fs-1 text-primary mb-2"></i>
+                    <h5 class="fw-bold">TravelWorld</h5>
+                    <p class="small">Panel de usuario</p>
+                </div>
+                <div class="p-3 border-top border-secondary">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle me-2" width="40"
+                            height="40" alt="Profile">
+                        <div>
+                            <p class="mb-0 fw-bold">Carlos Rodríguez</p>
+                            <small class="text-muted">Premium</small>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav flex-column mb-auto p-3">
+                    <li class="nav-item mb-2">
+                        <a href="/" class="nav-link text-secondary rounded">
+                            <i class="fas fa-home me-2"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="/categories" class="nav-link text-secondary rounded">
+                            <i class="fas fa-globe-americas me-2"></i>
+                            Categorías de Viaje
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="#" class="nav-link text-secondary">
+                            <i class="fas fa-suitcase me-2"></i>
+                            Mis Viajes
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="#" class="nav-link text-secondary">
+                            <i class="fas fa-bookmark me-2"></i>
+                            Favoritos
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="#" class="nav-link text-secondary">
+                            <i class="fas fa-bell me-2"></i>
+                            Notificaciones
+                            <span class="badge bg-danger rounded-pill ms-2">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="#" class="nav-link text-secondary">
+                            <i class="fas fa-credit-card me-2"></i>
+                            Pagos
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="#" class="nav-link text-secondary">
+                            <i class="fas fa-cog me-2"></i>
+                            Configuración
+                        </a>
+                    </li>
+                </ul>
+                <div class="p-3 border-top border-secondary">
+                    <a href="#" class="d-flex align-items-center text-secondary text-decoration-none">
+                        <i class="fas fa-sign-out-alt me-2"></i>
+                        Cerrar sesión
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-5 text-center">
+                                <div class="mb-4" style="font-size: 5rem; color: #28a745;">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h2 class="fw-bold mb-3">¡Reserva Confirmada!</h2>
+                                <p class="mb-4">Gracias por reservar con TravelWorld. Hemos enviado los detalles de su
+                                    reserva a su email.</p>
+
+                                <div class="alert alert-info mb-4">
+                                    <p class="mb-0">Su código de reserva: <strong>TWB-20250524135712</strong></p>
+                                </div>
+
+                                <div class="row mb-5 text-start">
+                                    <div class="col-md-6 mb-4 mb-md-0">
+                                        <h5 class="fw-bold mb-3">Detalles del Viaje</h5>
+                                        <p class="mb-1"><strong>Destino:</strong> Cancún, México</p>
+                                        <p class="mb-1"><strong>Fechas:</strong> 2025-06-15 al 2025-06-22</p>
+                                        <p class="mb-1"><strong>Viajeros:</strong> 2 adultos, 1 niño</p>
+                                        <p class="mb-0"><strong>Precio total:</strong> €3,125</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5 class="fw-bold mb-3">Información de Contacto</h5>
+                                        <p class="mb-1"><strong>Nombre:</strong> Carlos Rodríguez</p>
+                                        <p class="mb-1"><strong>Email:</strong> carlos.rodriguez@email.com</p>
+                                        <p class="mb-0"><strong>Teléfono:</strong> +34 612 345 678</p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-center gap-3">
+                                    <a href="/" class="btn btn-primary">
+                                        <i class="fas fa-home me-2"></i>Volver al Dashboard
+                                    </a>
+                                    <button class="btn btn-outline-primary">
+                                        <i class="fas fa-download me-2"></i>Descargar Confirmación
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card border-0 shadow-sm mt-4">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-3">Próximos Pasos</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="d-flex align-items-start">
+                                            <div
+                                                style="background-color: rgba(13, 110, 253, 0.1); padding: 0.75rem; border-radius: 0.375rem; margin-right: 0.75rem;">
+                                                <i class="fas fa-envelope text-primary fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="fw-bold mb-1">Email de Confirmación</h5>
+                                                <p class="small text-muted">Recibirás un email con todos los detalles de
+                                                    tu reserva.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="d-flex align-items-start">
+                                            <div
+                                                style="background-color: rgba(255, 193, 7, 0.1); padding: 0.75rem; border-radius: 0.375rem; margin-right: 0.75rem;">
+                                                <i class="fas fa-passport text-warning fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="fw-bold mb-1">Documentos</h5>
+                                                <p class="small text-muted">Revisa los requisitos de documentación para
+                                                    tu destino.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="d-flex align-items-start">
+                                            <div
+                                                style="background-color: rgba(25, 135, 84, 0.1); padding: 0.75rem; border-radius: 0.375rem; margin-right: 0.75rem;">
+                                                <i class="fas fa-suitcase text-success fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="fw-bold mb-1">Prepara tu Viaje</h5>
+                                                <p class="small text-muted">Explora nuestra guía con consejos para tu
+                                                    destino.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
